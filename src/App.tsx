@@ -1,12 +1,12 @@
-import DrawerSideContent from "./components/drawer/DrawerSideContent";
-import Dashboard from "./pages/dashboard/Dashboard";
+import DrawerSideContent from "@shared/components/drawer/DrawerSideContent";
+import Dashboard from "./features/dashboard/Dashboard";
 
 function App() {
   return (
     <>
       <div className="drawer">
         <input id="my-drawer" type="checkbox" className="drawer-toggle" />
-        <div className="drawer-content">
+        <div className="drawer-content px-8 py-6">
           <Dashboard />
         </div>
 
