@@ -1,23 +1,41 @@
-function MovieCard() {
+interface MovieCardProps {
+  id?: number;
+  name: string;
+  imagePath: string;
+}
+
+
+
+export function MovieCard({ name, imagePath }: MovieCardProps) {
   return (
     <>
-      <div className="card bg-base-100 image-full w-96 shadow-xl">
-        <figure>
-          <img
-            src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-            alt="Shoes"
-          />
-        </figure>
-        <div className="card-body">
-          <h2 className="card-title">Shoes!</h2>
-          <p>If a dog chews shoes whose shoes does he choose?</p>
-          <div className="card-actions justify-end">
-            <button className="btn btn-primary">Buy Now</button>
-          </div>
-        </div>
-      </div>
+      <figure className="max-w-64 max-h-36 shadow-xl hover:scale-105 ease-in-out duration-300">
+        <MovieCardBase name={name} imagePath={imagePath}></MovieCardBase>
+      </figure>
     </>
   );
 }
 
-export default MovieCard;
+export function MoviePosterCard({ name, imagePath }: MovieCardProps) {
+  return (
+    <>
+      <figure className="w-64 h-36 shadow-xl hover:scale-105 ease-in-out duration-300">
+        <MovieCardBase name={name} imagePath={imagePath}></MovieCardBase>
+      </figure>
+    </>
+  );
+}
+
+  function MovieCardBase({ name, imagePath }: MovieCardProps) {
+    return (
+      <>
+        <img
+          className="w-64 h-full rounded-xl"
+          src={`${import.meta.env.VITE_TMDB_IMAGE_BASE_URL}/w300${imagePath}`}
+          alt={name}
+          loading="lazy"
+        />
+      </>
+    );
+  }
+

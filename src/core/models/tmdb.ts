@@ -10,8 +10,15 @@ export interface TMDBPagination {
   total_results: number;
 }
 
-export interface TMDBResponseBase<T> extends TMDBPagination {
+export interface TMDBRangeDates {
+  dates?: {
+    maximum: string;
+    minimum: string;
+  };
+}
+
+interface TMDBResponseBase<T> extends TMDBPagination, TMDBRangeDates {
   results: Array<T>;
 }
 
-export type TMDBResponse<T> = Promise<TMDBResponse<T>>;
+export type TMDBResponse<T> = Promise<TMDBResponseBase<T>>;
