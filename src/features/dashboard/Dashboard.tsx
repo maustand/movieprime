@@ -3,17 +3,12 @@ import MoviesCarouselsContainer from "./partials/moviesCarouselsContainer/Movies
 function Dashboard() {
   return (
     <>
-      <div className="flex flex-col gap-12">
+      <div className="flex flex-col space-y-4">
         <section>
-          
-
+          <h1>sdasd</h1>
         </section>
 
-        <section>
-
-          <MoviesCarouselsContainer/>
-
-        </section>
+        <MoviesCarouselsContainer />
       </div>
     </>
   );

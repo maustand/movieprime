@@ -10,10 +10,32 @@ const MoviesService = (() => {
       .get<TMDBResponse<Movie>>(`${entryPoint}/now_playing`, {
         params: query,
       })
-      .then(({ data }) => data);
+      .then(({ data: results }) => results);
   }
 
-  return { getNowPlaying };
+  function getPopular(query?: TMDBQueryParams): TMDBResponse<Movie> {
+    return axios
+      .get<TMDBResponse<Movie>>(`${entryPoint}/popular`, {
+        params: query,
+      })
+      .then(({ data: results }) => results);
+  }
+
+  function getUpcoming(query?: TMDBQueryParams): TMDBResponse<Movie> {
+    return axios
+      .get<TMDBResponse<Movie>>(`${entryPoint}/upcoming`, {
+        params: query,
+      })
+      .then(({ data: results }) => results);
+  }
+
+  function show(movieId: number): Promise<Movie> {
+    return axios
+      .get<Promise<Movie>>(`${entryPoint}/${movieId}`)
+      .then(({ data: movie }) => movie);
+  }
+
+  return { getNowPlaying, getPopular, show, getUpcoming };
 })();
 
 export default MoviesService;

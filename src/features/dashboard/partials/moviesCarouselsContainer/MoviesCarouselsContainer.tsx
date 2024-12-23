@@ -1,29 +1,31 @@
-import { Movie } from "@/core/models/movies";
+import MediaCarousel from "@/shared/components/mediaCarousel/MediaCarousel";
 import moviesService from "@core/services/api/movies.service";
-import { useEffect, useState } from "react";
-import { MovieCard } from "@/shared/components/movieCard/MovieCard";
+import seriesService from "@core/services/api/series.service";
 
 export default function MoviesCarouselsContainer() {
-  const [moviesList, setMoviesList] = useState<Array<Movie>>([]);
-
-  useEffect(() => {
-    moviesService.getNowPlaying().then((response) => {
-      console.log(response);
-      setMoviesList(response.results);
-    });
-  }, []);
-
   return (
     <>
-      <div className="grid gap-8 grid-cols-6">
-        {moviesList.map((item: Movie) => (
-          <MovieCard
-            key={`movie-nowplaying${item.id}`}
-            id={item.id}
-            name={item.title}
-            imagePath={item.poster_path}
+      <div className="space-y-12">
+        <section>
+          <MediaCarousel
+            fetchMediaListFn={(page: number) =>
+              moviesService.getPopular({ page })
+            }
+            headerText="Movies - Popular"
+            id="moviesnowplaying"
           />
-        ))}
+        </section>
+        
+
+        <section>
+          <MediaCarousel
+            fetchMediaListFn={(page: number) =>
+              seriesService.getPopular({ page })
+            }
+            headerText="Series - Popular"
+            id="seriespopular"
+          />
+        </section>
       </div>
     </>
   );
