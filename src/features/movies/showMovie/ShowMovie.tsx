@@ -1,12 +1,13 @@
+import { MovieDetails } from "@/core/models/movies";
+import MediaOverView from "@/shared/components/media-overview/mediaOverview";
+import OnLoading from "@/shared/components/onLoading/OnLoading";
+import moviesService from "@core/services/api/movies.service";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
-import moviesService from "@core/services/api/movies.service";
-import { Movie } from "@/core/models/movies";
-import OnLoading from "@/shared/components/onLoading/OnLoading";
 
 export default function ShowMovie() {
   const { movieId } = useParams();
-  const [movie, setMovie] = useState<Movie>();
+  const [movie, setMovie] = useState<MovieDetails>();
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
   useEffect(() => {
@@ -29,10 +30,13 @@ export default function ShowMovie() {
           <h1 className="text-4xl">MOVIE NOT FOUND</h1>
         </div>
       ) : (
-        <article>
-          <h2>{movie.title}</h2>
-          <p>{movie.overview}</p>
-        </article>
+
+        <MediaOverView id={movie.id}  
+        name={movie.title} posterPath={movie.poster_path} releaseDate={movie.release_date} 
+        overview={movie.overview}
+        rating={movie.vote_average}
+        genres={movie.genres?.map((i) => i.name)}
+        />
       )}
     </>
   );

@@ -1,4 +1,4 @@
-import { Media } from "./media";
+import { Genre, Media } from "./media";
 
 export interface Movie extends Media {
   video: boolean;
@@ -10,4 +10,5 @@ export interface Movie extends Media {
 export interface MovieDetails extends Movie {
   status: string;
   tagline: string;
+  genres: Genre[];
 }

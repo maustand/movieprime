@@ -31,7 +31,7 @@ export default function MediaCarousel<T extends MediaItem>({
       <h2 className="text-slate-100 mb-4 text-lg">{headerText}</h2>
       <Swiper
         modules={[Navigation]}
-        spaceBetween={3}
+        spaceBetween={6}
         slidesPerView={5.2}
         navigation
         onReachEnd={fetchNextPage}

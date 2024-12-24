@@ -1,4 +1,4 @@
-import { Movie } from "@/core/models/movies";
+import { Movie, MovieDetails } from "@/core/models/movies";
 import { TMDBQueryParams, TMDBResponse } from "@/core/models/tmdb";
 import axios from "@/core/services/axios/axios.service";
 
@@ -29,9 +29,9 @@ const MoviesService = (() => {
       .then(({ data: results }) => results);
   }
 
-  function show(movieId: number): Promise<Movie> {
+  function show(movieId: number): Promise<MovieDetails> {
     return axios
-      .get<Promise<Movie>>(`${entryPoint}/${movieId}`)
+      .get<Promise<MovieDetails>>(`${entryPoint}/${movieId}`)
       .then(({ data: movie }) => movie);
   }
 

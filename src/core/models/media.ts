@@ -10,3 +10,8 @@ export interface Media {
   popularity: number;
   poster_path: string;
 }
+
+export interface Genre {
+  id: number;
+  name: string;
+}
