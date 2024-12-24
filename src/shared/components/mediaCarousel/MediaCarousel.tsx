@@ -9,6 +9,7 @@ interface MediaCarouselProps<T> {
   id: string;
   fetchMediaListFn: (page: number) => TMDBResponse<T>;
   headerText: string;
+  mediaDetailsRoutePrefix: string;
 }
 
 interface MediaItem {
@@ -22,6 +23,7 @@ export default function MediaCarousel<T extends MediaItem>({
   fetchMediaListFn,
   headerText,
   id,
+  mediaDetailsRoutePrefix = '',
 }: MediaCarouselProps<T>) {
   const { isLoading, mediaList, fetchNextPage } =
     usePaginationMediaItems<T>(fetchMediaListFn);
@@ -42,6 +44,7 @@ export default function MediaCarousel<T extends MediaItem>({
               id={item?.id}
               title={item?.title || item.name}
               imagePath={item.poster_path}
+              detailsRoutePrefix={mediaDetailsRoutePrefix}
             />
           </SwiperSlide>
         ))}

@@ -5,8 +5,11 @@ function MoviesList() {
   return (
     <>
       <div className="space-y-12 overflow-auto">
+        <h1 className="text-slate-100 text-2xl">Movies</h1>
+
         <section>
           <MediaCarousel
+            mediaDetailsRoutePrefix="/movies"
             fetchMediaListFn={(page: number) =>
               moviesService.getNowPlaying({ page })
             }
@@ -17,6 +20,7 @@ function MoviesList() {
 
         <section>
           <MediaCarousel
+            mediaDetailsRoutePrefix="/movies"
             fetchMediaListFn={(page: number) =>
               moviesService.getPopular({ page })
             }
@@ -27,6 +31,7 @@ function MoviesList() {
 
         <section>
           <MediaCarousel
+            mediaDetailsRoutePrefix="/movies"
             fetchMediaListFn={(page: number) =>
               moviesService.getUpcoming({ page })
             }

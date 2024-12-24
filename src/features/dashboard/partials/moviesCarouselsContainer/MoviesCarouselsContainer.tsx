@@ -8,6 +8,7 @@ export default function MoviesCarouselsContainer() {
       <div className="space-y-12">
         <section>
           <MediaCarousel
+            mediaDetailsRoutePrefix="/movies"
             fetchMediaListFn={(page: number) =>
               moviesService.getPopular({ page })
             }
@@ -15,7 +16,6 @@ export default function MoviesCarouselsContainer() {
             id="moviesnowplaying"
           />
         </section>
-        
 
         <section>
           <MediaCarousel
@@ -24,6 +24,7 @@ export default function MoviesCarouselsContainer() {
             }
             headerText="Series - Popular"
             id="seriespopular"
+            mediaDetailsRoutePrefix="/movies"
           />
         </section>
       </div>
