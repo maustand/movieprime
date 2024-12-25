@@ -45,6 +45,8 @@ export default function MediaCarousel<T extends MediaItem>({
               title={item?.title || item.name}
               imagePath={item.poster_path}
               detailsRoutePrefix={mediaDetailsRoutePrefix}
+              width={250}
+              height={150}
             />
           </SwiperSlide>
         ))}
