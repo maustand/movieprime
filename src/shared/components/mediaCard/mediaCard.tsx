@@ -17,6 +17,7 @@ export function MediaCard({
   return (
     <>
       <Link
+        className="w-fit block"
         to={detailsRoutePrefix ? `${detailsRoutePrefix}/${id}` : "#"}
       >
         <img
