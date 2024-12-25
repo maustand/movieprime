@@ -54,20 +54,22 @@ export default function SeriesList() {
         </div>
 
         {isLoading ? (
-          <OnLoading type="ring" size="lg" />
-        ) : (
-          <div className="grid grid-cols-7 gap-6">
-            {mediaList.map((item: Serie, indx) => (
-              <MediaCard
-                key={indx}
-                id={item.id}
-                title={item.name}
-                imagePath={item.poster_path}
-                detailsRoutePrefix={"/series"}
-              />
-            ))}
+          <div className="flex justify-center">
+            <OnLoading type="ring" size="lg" />
           </div>
-        )}
+        ) : null}
+        
+        <div className="grid grid-cols-6 gap-6">
+          {mediaList.map((item: Serie, indx) => (
+            <MediaCard
+              key={indx}
+              id={item.id}
+              title={item.name}
+              imagePath={item.poster_path}
+              detailsRoutePrefix={"/series"}
+            />
+          ))}
+        </div>
       </div>
     </>
   );
