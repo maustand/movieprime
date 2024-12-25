@@ -1,3 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.swiper, .swiper-wrapper, .swiper-button-prev {
+    z-index: unset !important;
+}
+
