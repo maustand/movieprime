@@ -13,9 +13,25 @@ const SeriesService = (() => {
       .then(({ data: results }) => results);
   }
 
+  function getOnTheAir(query?: TMDBQueryParams): TMDBResponse<Serie> {
+    return axios
+      .get<TMDBResponse<Serie>>(`${entryPoint}/on_the_air`, {
+        params: query,
+      })
+      .then(({ data: results }) => results);
+  }
+
   function getPopular(query?: TMDBQueryParams): TMDBResponse<Serie> {
     return axios
       .get<TMDBResponse<Serie>>(`${entryPoint}/popular`, {
+        params: query,
+      })
+      .then(({ data: results }) => results);
+  }
+
+  function getTopRated(query?: TMDBQueryParams): TMDBResponse<Serie> {
+    return axios
+      .get<TMDBResponse<Serie>>(`${entryPoint}/top_rated`, {
         params: query,
       })
       .then(({ data: results }) => results);
@@ -27,7 +43,7 @@ const SeriesService = (() => {
       .then(({ data: movie }) => movie);
   }
 
-  return { getAiringToday, getPopular, show };
+  return { getAiringToday, getPopular, getOnTheAir, getTopRated, show };
 })();
 
 export default SeriesService;

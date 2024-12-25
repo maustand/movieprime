@@ -4,10 +4,9 @@ import { Bars3Icon } from "@heroicons/react/24/solid";
 import { Navigate, Route, Routes } from "react-router";
 import ShowMovie from "./features/movies/showMovie/ShowMovie";
 import MoviesList from "./features/movies/MoviesList";
+import SeriesList from "./features/series/SeriesList";
 
 function App() {
-
-
   return (
     <>
       <div className="drawer">
@@ -28,6 +27,11 @@ function App() {
               <Route path="movies">
                 <Route index element={<MoviesList />} />
                 <Route path=":movieId" element={<ShowMovie />} />
+              </Route>
+
+              <Route path="series">
+                <Route index element={<SeriesList />} />
+                <Route path=":serieId" element={<ShowMovie />} />
               </Route>
             </Routes>
           </main>
