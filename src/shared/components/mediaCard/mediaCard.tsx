@@ -18,7 +18,6 @@ export function MediaCard({
     <>
       <Link
         to={detailsRoutePrefix ? `${detailsRoutePrefix}/${id}` : "#"}
-        className="shadow-xl"
       >
         <img
           className="rounded-xl hover:scale-105 ease-in-out duration-300"

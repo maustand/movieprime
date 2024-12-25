@@ -39,7 +39,7 @@ export default function SeriesList() {
       <div className="space-y-12 overflow-auto">
         <h1 className="text-slate-100 text-2xl">Series</h1>
 
-        <div>
+        <div className="flex justify-end">
           <select
             className="select select-bordered w-full max-w-xs"
             value={categorySerie}
@@ -56,7 +56,7 @@ export default function SeriesList() {
         {isLoading ? (
           <OnLoading type="ring" size="lg" />
         ) : (
-          <div>
+          <div className="grid grid-cols-7 gap-6">
             {mediaList.map((item: Serie, indx) => (
               <MediaCard
                 key={indx}

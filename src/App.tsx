@@ -1,10 +1,11 @@
-import DrawerSideContent from "@shared/components/drawer/DrawerSideContent";
-import Dashboard from "./features/dashboard/Dashboard";
 import { Bars3Icon } from "@heroicons/react/24/solid";
+import DrawerSideContent from "@shared/components/drawer/DrawerSideContent";
 import { Navigate, Route, Routes } from "react-router";
-import ShowMovie from "./features/movies/showMovie/ShowMovie";
+import Dashboard from "./features/dashboard/Dashboard";
 import MoviesList from "./features/movies/MoviesList";
+import ShowMovie from "./features/movies/showMovie/ShowMovie";
 import SeriesList from "./features/series/SeriesList";
+import ShowSerie from "./features/series/showSerie/ShowSerie";
 
 function App() {
   return (
@@ -31,7 +32,7 @@ function App() {
 
               <Route path="series">
                 <Route index element={<SeriesList />} />
-                <Route path=":serieId" element={<ShowMovie />} />
+                <Route path=":serieId" element={<ShowSerie />} />
               </Route>
             </Routes>
           </main>

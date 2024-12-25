@@ -1,6 +1,6 @@
 export interface Media {
   id: number;
-  adult: false;
+  adult: boolean;
   backdrop_path: string;
   genre_ids: Array<number>;
   vote_average: number;

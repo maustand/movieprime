@@ -25,6 +25,11 @@ function DrawerSideContent() {
               Movies
             </NavLink>
           </li>
+          <li>
+            <NavLink to="/series" end>
+              Series
+            </NavLink>
+          </li>
         </ul>
       </div>
     </>
