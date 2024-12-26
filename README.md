@@ -1,50 +1,51 @@
-# React + TypeScript + Vite
+# Movie Prime
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a web application built with React that replicates key features of Amazon Prime Video. It integrates with the [TMDB API](https://www.themoviedb.org/documentation/api) to allow users to browse movies and TV shows, view detailed information about each title, and explore a variety of content categories.
+Usefull to learn React.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Movie and TV Show Browsing**: Discover popular, top-rated, and trending content.
+- **Detailed Views**: Access detailed information for each movie or TV show, including synopsis, and ratings.
 
-## Expanding the ESLint configuration
+## Requirements
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- **Node.js**: Version 18 or higher
+- **npm** or **yarn**: For managing dependencies
+- **TMDB API Key**: You will need a [TMDB account](https://developer.themoviedb.org/reference/intro/getting-started) in order to get access for an API key from TMDB to fetch movie and TV show data.
 
-- Configure the top-level `parserOptions` property like this:
+## Installation and Setup
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+1. **Clone the Repository**:
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+   ```bash
+   git clone git@github.com:maustand/movieprime.git
+   cd movieprime
+   ```
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+2. **Install Dependencies**:
+   Use npm or yarn to install the required dependencies:
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
+
+3. **Set Up Environment Variables**:
+   Create a `.env` file in the root directory and add the environment variables listed below.
+
+   ```env
+      VITE_TMDB_API_BASE_URL=https://api.themoviedb.org/3
+      VITE_TMDB_IMAGE_BASE_URL=https://image.tmdb.org/t/p
+      VITE_TMDB_API_Key="YOUR_TMDB_API_KEY"
+   ```
+
+4. **Run the Application**:
+   Start the development server:
+   ```bash
+   npm run dev
+   # or
+   npm run dev
+   ```
+   The application will be accessible at `http://localhost:5173/`.
